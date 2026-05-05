@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opening in Obsidian…</title>
+<style>
+ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;display:flex;
+      flex-direction:column;align-items:center;justify-content:center;min-height:100vh;
+      margin:0;padding:1.5rem;background:#1e1e2e;color:#cdd6f4;text-align:center}
+ h1{font-size:1.25rem;font-weight:600;margin:0 0 .5rem}
+ p{margin:.25rem 0;opacity:.8;font-size:.95rem}
+ code{background:#313244;padding:.5rem .75rem;border-radius:6px;display:inline-block;
+      margin-top:1rem;word-break:break-all;max-width:90vw;font-size:.85rem}
+ a{color:#89b4fa}
+</style>
+</head>
+<body>
+<h1>Opening in Obsidian…</h1>
+<p>If nothing happens, tap the link below.</p>
+<code id="link"></code>
+<script>
+ const p=new URLSearchParams(location.search);
+ const v=p.get('vault')||'mikez_claude_code';
+ const f=p.get('file')||'';
+ const t=`obsidian://open?vault=${encodeURIComponent(v)}&file=${encodeURIComponent(f)}`;
+ document.getElementById('link').innerHTML=`<a href="${t}">${t}</a>`;
+ location.replace(t);
+</script>
+</body>
+</html>
